@@ -1,0 +1,298 @@
+fgt-FGT # 
+fgt-FGT # 
+fgt-FGT # get system status | grep Virtual
+Virtual domains status: 1 in NAT mode, 0 in TP mode
+Virtual domain configuration: disable
+
+fgt-FGT # 
+fgt-FGT # get system console
+mode                : line 
+baudrate            : 9600 
+output              : standard 
+login               : enable 
+
+fgt-FGT # config system console
+
+fgt-FGT (console) # set output standard
+
+fgt-FGT (console) # end
+
+fgt-FGT # show firewall address 192.168.126.10
+config firewall address
+    edit "192.168.126.10"
+        set uuid cc4e5cf6-c4f1-51ed-7ac5-1e28eac2a7f1
+        set subnet 192.168.126.10 255.255.255.255
+    next
+end
+
+fgt-FGT # show firewall address  192.168.127.10
+config firewall address
+    edit "192.168.127.10"
+        set uuid d44537e0-c4f1-51ed-3695-f7d9015954e4
+        set subnet 192.168.127.10 255.255.255.255
+    next
+end
+
+fgt-FGT # show firewall address  192.168.2.15
+config firewall address
+    edit "192.168.2.15"
+        set uuid dc3c72f6-c4f1-51ed-1cc7-c0d2b8874587
+        set subnet 192.168.2.15 255.255.255.255
+    next
+end
+
+fgt-FGT # show firewall address  192.168.2.16
+config firewall address
+    edit "192.168.2.16"
+        set uuid e4424912-c4f1-51ed-0f88-ef9c920307a4
+        set subnet 192.168.2.16 255.255.255.255
+    next
+end
+
+fgt-FGT # show firewall address 10.10.10.1
+config firewall address
+    edit "10.10.10.1"
+        set uuid ec3f450c-c4f1-51ed-69ab-5ab70b10e04e
+        set subnet 10.10.10.1 255.255.255.255
+    next
+end
+
+fgt-FGT # show firewall address  10.20.20.2
+config firewall address
+    edit "10.20.20.2"
+        set uuid f43bbc0e-c4f1-51ed-b085-8918772f231e
+        set subnet 10.20.20.2 255.255.255.255
+    next
+end
+
+fgt-FGT # show firewall address  10.30.30.3
+config firewall address
+    edit "10.30.30.3"
+        set uuid fc380f20-c4f1-51ed-176e-a7cd925f811b
+        set subnet 10.30.30.3 255.255.255.255
+    next
+end
+
+fgt-FGT # config firewall policy
+
+fgt-FGT (policy) # edit 0
+new entry '0' added
+
+fgt-FGT (0) # set name CHG0012345#1
+'CHG0012345#1' is already used by firewall.policy '1'
+node_check_object fail! for name CHG0012345#1
+
+value parse error before 'CHG0012345#1'
+Command fail. Return code -651
+
+fgt-FGT (0) # set srcintf any
+
+fgt-FGT (0) # set dstintf any
+
+fgt-FGT (0) # set schedule always
+
+fgt-FGT (0) # set srcaddr 10.10.10.1  10.20.20.2  10.30.30.3
+
+fgt-FGT (0) # set dstaddr 192.168.126.10  192.168.127.10  192.168.2.15  192.168.2.16
+
+fgt-FGT (0) # set action accept
+
+fgt-FGT (0) # set service ALL_ICMP
+
+fgt-FGT (0) # next
+
+fgt-FGT (policy) # end
+
+fgt-FGT # show firewall address 192.168.126.10
+config firewall address
+    edit "192.168.126.10"
+        set uuid cc4e5cf6-c4f1-51ed-7ac5-1e28eac2a7f1
+        set subnet 192.168.126.10 255.255.255.255
+    next
+end
+
+fgt-FGT # show firewall address  192.168.127.10
+config firewall address
+    edit "192.168.127.10"
+        set uuid d44537e0-c4f1-51ed-3695-f7d9015954e4
+        set subnet 192.168.127.10 255.255.255.255
+    next
+end
+
+fgt-FGT # show firewall address  192.168.2.15
+config firewall address
+    edit "192.168.2.15"
+        set uuid dc3c72f6-c4f1-51ed-1cc7-c0d2b8874587
+        set subnet 192.168.2.15 255.255.255.255
+    next
+end
+
+fgt-FGT # show firewall address  192.168.2.16
+config firewall address
+    edit "192.168.2.16"
+        set uuid e4424912-c4f1-51ed-0f88-ef9c920307a4
+        set subnet 192.168.2.16 255.255.255.255
+    next
+end
+
+fgt-FGT # show firewall address 10.10.10.1
+config firewall address
+    edit "10.10.10.1"
+        set uuid ec3f450c-c4f1-51ed-69ab-5ab70b10e04e
+        set subnet 10.10.10.1 255.255.255.255
+    next
+end
+
+fgt-FGT # show firewall address  10.20.20.2
+config firewall address
+    edit "10.20.20.2"
+        set uuid f43bbc0e-c4f1-51ed-b085-8918772f231e
+        set subnet 10.20.20.2 255.255.255.255
+    next
+end
+
+fgt-FGT # show firewall address  10.30.30.3
+config firewall address
+    edit "10.30.30.3"
+        set uuid fc380f20-c4f1-51ed-176e-a7cd925f811b
+        set subnet 10.30.30.3 255.255.255.255
+    next
+end
+
+fgt-FGT # show firewall service custom TCP-389
+config firewall service custom
+    edit "TCP-389"
+        set tcp-portrange 389
+    next
+end
+
+fgt-FGT # config firewall policy
+
+fgt-FGT (policy) # edit 0
+new entry '0' added
+
+fgt-FGT (0) # set name CHG0012345#2
+'CHG0012345#2' is already used by firewall.policy '2'
+node_check_object fail! for name CHG0012345#2
+
+value parse error before 'CHG0012345#2'
+Command fail. Return code -651
+
+fgt-FGT (0) # set srcintf any
+
+fgt-FGT (0) # set dstintf any
+
+fgt-FGT (0) # set schedule always
+
+fgt-FGT (0) # set srcaddr 10.10.10.1  10.20.20.2  10.30.30.3
+
+fgt-FGT (0) # set dstaddr 192.168.126.10  192.168.127.10  192.168.2.15  192.168.2.16
+
+fgt-FGT (0) # set action accept
+
+fgt-FGT (0) # set service TCP-389
+
+fgt-FGT (0) # next
+
+fgt-FGT (policy) # end
+
+fgt-FGT # show firewall service custom TCP-88
+config firewall service custom
+    edit "TCP-88"
+        set tcp-portrange 88
+    next
+end
+
+fgt-FGT # config firewall policy
+
+fgt-FGT (policy) # edit 0
+new entry '0' added
+
+fgt-FGT (0) # set name CHG0012345#2
+'CHG0012345#2' is already used by firewall.policy '2'
+node_check_object fail! for name CHG0012345#2
+
+value parse error before 'CHG0012345#2'
+Command fail. Return code -651
+
+fgt-FGT (0) # set srcintf any
+
+fgt-FGT (0) # set dstintf any
+
+fgt-FGT (0) # set schedule always
+
+fgt-FGT (0) # set srcaddr 10.10.10.1  10.20.20.2  10.30.30.3
+
+fgt-FGT (0) # set dstaddr 192.168.126.10  192.168.127.10  192.168.2.15  192.168.2.16
+
+fgt-FGT (0) # set action accept
+
+fgt-FGT (0) # set service TCP-88
+
+fgt-FGT (0) # next
+
+fgt-FGT (policy) # end
+
+fgt-FGT # show firewall service custom UDP-389
+config firewall service custom
+    edit "UDP-389"
+        set tcp-portrange 389
+    next
+end
+
+fgt-FGT # config firewall policy
+
+fgt-FGT (policy) # edit 0
+new entry '0' added
+
+fgt-FGT (0) # set name CHG0012345#2
+'CHG0012345#2' is already used by firewall.policy '2'
+node_check_object fail! for name CHG0012345#2
+
+value parse error before 'CHG0012345#2'
+Command fail. Return code -651
+
+fgt-FGT (0) # set srcintf any
+
+fgt-FGT (0) # set dstintf any
+
+fgt-FGT (0) # set schedule always
+
+fgt-FGT (0) # set srcaddr 10.10.10.1  10.20.20.2  10.30.30.3
+
+fgt-FGT (0) # set dstaddr 192.168.126.10  192.168.127.10  192.168.2.15  192.168.2.16
+
+fgt-FGT (0) # set action accept
+
+fgt-FGT (0) # set service UDP-389
+
+fgt-FGT (0) # next
+
+fgt-FGT (policy) # end
+
+fgt-FGT # show firewall service custom UDP-88
+config firewall service custom
+    edit "UDP-88"
+        set tcp-portrange 88
+    next
+end
+
+fgt-FGT # config firewall policy
+
+fgt-FGT (policy) # edit 0
+new entry '0' added
+
+fgt-FGT (0) # set name CHG0012345#2
+'CHG0012345#2' is already used by firewall.policy '2'
+node_check_object fail! for name CHG0012345#2
+
+value parse error before 'CHG0012345#2'
+Command fail. Return code -651
+
+fgt-FGT (0) # set srcintf any
+
+fgt-FGT (0) # set dstintf any
+
+fgt-FGT (0) # set schedule always
+
+fgt-FGT (0) # 
