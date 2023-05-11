@@ -20,9 +20,9 @@ logger = logging.getLogger("netmiko")
 
 fortigate = {
     'device_type': 'fortinet',
-    'username': 'fgtuser',
-    'password': 'T3st3d123$!!!',
-    'host': '104.41.226.251',
+    'username': 'fortinetuser',
+    'password': 'supersecretpassword',
+    'host': 'x.x.x.x',
     'session_log': 'netmiko_session.log',
     'global_delay_factor': 0.2,
     'fast_cli': False,
